@@ -12,7 +12,7 @@ pipeline {
         stage('Execute') {
           steps {
             sh ''' cd myapp
- pip install -r requirements.txt'''
+ start install -r requirements.txt'''
           }
         }
 
