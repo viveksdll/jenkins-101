@@ -2,12 +2,20 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Building..'
-        sh '''
-                cd myapp
-                pip install -r requirements.txt
-                '''
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Building..'
+          }
+        }
+
+        stage('Execute') {
+          steps {
+            sh ''' cd myapp
+ pip install -r requirements.txt'''
+          }
+        }
+
       }
     }
 
