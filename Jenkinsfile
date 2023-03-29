@@ -12,7 +12,7 @@ pipeline {
         stage('Execute') {
           steps {
             sh ''' cd myapp
- start install -r requirements.txt'''
+ RUN pip install --no-cache-dir -r requirements.txt'''
           }
         }
 
